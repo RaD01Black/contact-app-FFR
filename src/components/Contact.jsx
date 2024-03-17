@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import ContactsList from "./ContactsList";
+import inputs from "../constants/input";
 
 function Contact() {
     const [contacts, setContacts] = useState([]);
@@ -42,10 +43,16 @@ function Contact() {
   return (
     <div>
         <div>
-            <input type="text" placeholder="Name" name="name" value={contact.name} onChange={changeHandler} />
-            <input type="text" placeholder="Last Name" name="LastName" value={contact.LastName} onChange={changeHandler} />
-            <input type="text" placeholder="Email" name="email" vale={contact.email} onChange={changeHandler} />
-            <input type="number" placeholder="Phone" name="phone"value={contact.phone} onChange={changeHandler} />
+            {inputs.map((input, index) => (
+                <input 
+                key={index}
+                type={input.type}
+                placeholder={input.placeholder}
+                name={input.name}
+                value={contact[input.name]}
+                onChange={changeHandler}
+                />
+            ))}
             <button onClick={addHandler}>Add contact </button>
        </div>
        <div>{alert && <p>{alert}</p>}</div>
