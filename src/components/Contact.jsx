@@ -4,7 +4,6 @@ import { v4 } from "uuid";
 import ContactsList from "./ContactsList";
 import inputs from "../constants/input";
 
-
 function Contact() {
     const [contacts, setContacts] = useState([]);
     const [alert, setAlert] = useState("");
@@ -44,6 +43,11 @@ function Contact() {
         });
     };
 
+    const deleteHandler = (id) => {
+        const newContacts = contacts.filter((contact) => contact.id !== id);
+        setContacts(newContacts);
+    };
+
   return (
     <div>
         <div>
@@ -60,7 +64,7 @@ function Contact() {
             <button onClick={addHandler}>Add contact </button>
        </div>
        <div>{alert && <p>{alert}</p>}</div>
-       <ContactsList contacts={contacts} />
+       <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   )
 }
