@@ -5,7 +5,7 @@ function Header() {
     <div className={styles.container}>
         <h1>Contact App</h1>
         <p>
-            <a href="https://radblack.online/">RaDBlack01</a> | React.js FFR
+            <a href="https://radblack.site/">RaDBlack01</a> | React.js FFR
         </p>
     </div>
   )
